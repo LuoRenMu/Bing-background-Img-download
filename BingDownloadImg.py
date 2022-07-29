@@ -44,25 +44,27 @@ def downloadImg(paged = 5):
                 result_JsonData = requests.post(url=BING_IMGURL,headers=HEARDES,params=params)
                 if result_JsonData.status_code == 200 :
 
-                    result_Data=result_JsonData.json()['data']
-
+                    result_Data=result_JsonData.json()['data'] 
+                    #去除转换符
                     result_handelData = re.compile(r"\\").sub("",result_Data)
 
                     #print(result_handelData)
-
+                    #获取所有图片名称   
                     titles = re.compile('title="(.*?)"').findall(result_handelData)
+                    #获取所有图片链接
                     urls = re.compile('style="background-image: url\(https://tvax1.sinaimg.cn/wap800/(.*?)\)"').findall(result_handelData)
 
 
-
+                    #将重复title及点个赞呗 去除
                     for i in titles :
-                        if i != "点个赞呗" and i != title:
+                        if i != "点个赞呗" and i != title: 
                             title = i
-                            img_titles.append(title)
+                            img_titles.append(title) 
 
                     for i in range(0, 7):
                         imgData = requests.get(url=IMGURL+urls[i], headers=HEARDES)
                         if imgData.status_code == 200:
+                            #下载
                             if not os.path.exists(f"{imgDownlaodFilePath}{img_titles[i]}.jpg"):
                                 with open(f"{imgDownlaodFilePath}{img_titles[i]}.jpg", "wb") as f:
                                     print(f"正在下载{img_titles[i]}", end="")
