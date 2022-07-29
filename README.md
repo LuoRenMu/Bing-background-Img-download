@@ -1,5 +1,5 @@
 # Bing-background-Img-download
-  nedd python 3  requests
+  need python 3 and requests
   pip install requests
   
   
