@@ -10,7 +10,7 @@ import os
 #https://tvax1.sinaimg.cn/wap800/007YLcQ6ly1h4cohy1d2vj31hc0u0jw3   F
 #https://tvax4.sinaimg.cn/large/007YLcQ6ly1h4cohy1d2vj31hc0u0jw3    T
 
-#bing ajax地址
+#bing serlvet地址
 BING_IMGURL = "https://www.todaybing.com/web/api"
 #bing 地址
 BING_URL = "https://www.todaybing.com/"
