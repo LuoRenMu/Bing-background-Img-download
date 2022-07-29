@@ -10,9 +10,11 @@ import os
 #https://tvax1.sinaimg.cn/wap800/007YLcQ6ly1h4cohy1d2vj31hc0u0jw3   F
 #https://tvax4.sinaimg.cn/large/007YLcQ6ly1h4cohy1d2vj31hc0u0jw3    T
 
-
+#bing ajax地址
 BING_IMGURL = "https://www.todaybing.com/web/api"
+#bing 地址
 BING_URL = "https://www.todaybing.com/"
+#原始图片地址
 IMGURL = "https://tvax4.sinaimg.cn/large/"
 
 #安装路径
@@ -26,7 +28,7 @@ HEARDES = {
 
 
 def downloadImg(paged = 5):
-            sum = 0
+            sum = 0  
             title = ""
             img_titles = []
 
@@ -38,7 +40,7 @@ def downloadImg(paged = 5):
                     "paged": i,
                     "action": "ajax_load_posts"
                 }
-
+                
                 result_JsonData = requests.post(url=BING_IMGURL,headers=HEARDES,params=params)
                 if result_JsonData.status_code == 200 :
 
